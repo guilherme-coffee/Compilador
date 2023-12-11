@@ -17,6 +17,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import java.awt.Color;
 
+//nome: Guilherme Souza dos Santos
+
 public class Interface {
 
 	private JFrame framePrincipal;

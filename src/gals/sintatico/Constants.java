@@ -1,5 +1,6 @@
 package gals.sintatico;
 
+import gals.lexico.ParserConstants;
 import gals.lexico.ScannerConstants;
 
 public interface Constants extends ScannerConstants, ParserConstants {

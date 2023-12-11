@@ -24,6 +24,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import analisador.lexico.AnalisadorLexico;
 import gals.lexico.LexicalError;
 import gals.lexico.Lexico;
+import gals.lexico.SemanticError;
+import gals.lexico.Semantico;
+import gals.lexico.Sintatico;
 import gals.lexico.SyntaticError;
 
 import java.awt.Component;
@@ -229,26 +232,26 @@ public class HandlerAcoes {
 		    public void actionPerformed(ActionEvent e) {
 	
 		 	   Lexico lexico = new Lexico();
-		  	   //Sintatico sintatico = new Sintatico();
-		  	   //o o = new o();
+		  	   Sintatico sintatico = new Sintatico();
+		  	   Semantico semantico = new Semantico();
 		    
-		  	  // lexico.setInput(new StringReader(editor.getEditorTexto().getText()));
+		  	   lexico.setInput(new StringReader(editor.getEditorTexto().getText()));
 		  	   try {
 			    	salvarCodigo();
 		  		   
 		  		   AnalisadorLexico.analisar(editor.getEditorTexto().getText());
-		  		  // sintatico.parse(lexico, o);
+		  		   sintatico.parse(lexico, semantico);
 
-		  		  // salvarCodigoGerado(o.getCodigo());
+		  		   salvarCodigoGerado(semantico.getCodigo());
 		  		   
 		  		  log.setText("Programa compilado com sucesso.");
 		    	} catch (LexicalError ex) {
 					log.setText(ex.getMessage());
-				//} catch (SyntaticError e2) {
-				//	log.setText(e2.getMessage());
-				//} catch (Error e3) {
-				//	System.out.println(e3.getMessage());
-				//	log.setText(e3.getMessage());
+				} catch (SyntaticError e2) {
+					log.setText(e2.getMessage());
+				} catch (SemanticError e3) {
+					System.out.println(e3.getMessage());
+					log.setText(e3.getMessage());
 				}
 		    }
 		};
@@ -267,11 +270,12 @@ public class HandlerAcoes {
 		
 		salvarArquivoInterno(caminhoArquivo, codigoGerado, ".il");
 	}
+	
 	public Action mostrarEquipe() {
 		return new AbstractAction() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        log.setText("Guilherme Souza dos Santos");
+		        log.setText("Gustavo Kistner\n\nJoão Bragantino\n\nVinicius Martins");
 		    }
 		};
 	}

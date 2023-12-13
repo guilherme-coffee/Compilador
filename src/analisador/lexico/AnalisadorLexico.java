@@ -13,7 +13,7 @@ public class AnalisadorLexico {
 	
 	public static String analisar(String text) throws LexicalError {		
 	   Lexico lexico = new Lexico();
-  	   lexico.setInput(new StringReader(text));
+  	   lexico.setInput(text);
   	   
   	   
   	   try {
@@ -41,7 +41,9 @@ public class AnalisadorLexico {
 		   }
 		   return analise.toString() + "\r\nPrograma compilado com sucesso!";
   	   } catch (LexicalError ex) {
-  		  throw new LexicalError("Erro na linha " + getLinha(text, ex.getPosition()) + " - " + ex.getMessage().replace("{lexema}", ex.getPalavra()));
+  		  //throw new LexicalError("Erro na linha " + getLinha(text, ex.getPosition()) + " - " + ex.getMessage().replace("{lexema}", ex.getPalavra()));
+   		  throw new LexicalError("Erro no analisador lexico " + ex.getMessage() );
+
   	   }
 	}
 	

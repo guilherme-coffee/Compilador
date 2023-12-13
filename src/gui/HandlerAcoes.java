@@ -235,7 +235,7 @@ public class HandlerAcoes {
 		  	   Sintatico sintatico = new Sintatico();
 		  	   Semantico semantico = new Semantico();
 		    
-		  	   lexico.setInput(new StringReader(editor.getEditorTexto().getText()));
+		  	   lexico.setInput(editor.getEditorTexto().getText());
 		  	   try {
 			    	salvarCodigo();
 		  		   
@@ -247,11 +247,14 @@ public class HandlerAcoes {
 		  		  log.setText("Programa compilado com sucesso.");
 		    	} catch (LexicalError ex) {
 					log.setText(ex.getMessage());
+					System.out.println("lexico");
 				} catch (SyntaticError e2) {
 					log.setText(e2.getMessage());
+					System.out.println("sintatico");
 				} catch (SemanticError e3) {
 					System.out.println(e3.getMessage());
 					log.setText(e3.getMessage());
+					System.out.println("semantico");
 				}
 		    }
 		};
@@ -275,7 +278,7 @@ public class HandlerAcoes {
 		return new AbstractAction() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        log.setText("Gustavo Kistner\n\nJoão Bragantino\n\nVinicius Martins");
+		        log.setText("Guilherme Souza dos Santos");
 		    }
 		};
 	}

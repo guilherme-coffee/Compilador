@@ -210,7 +210,7 @@ public class Semantico implements Constants {
 
         if ((!tipo1.equals("float64") && !tipo1.equals("int64"))
                 || (!tipo2.equals("float64") && !tipo2.equals("int64")))
-            throw new SemanticError("tipo(s) incompat�vel(is) em express�o aritm�tica", token.getPosition());
+            throw new SemanticError("tipo(s) incompativel(is) em expressao aritmetica", token.getPosition());
         else {
             if (tipo1.equals("float64") || tipo2.equals("float64"))
                 pilha_tipos.push("float64");
@@ -227,7 +227,7 @@ public class Semantico implements Constants {
 
         if ((!tipo1.equals("float64") && !tipo1.equals("int64"))
                 || (!tipo2.equals("float64") && !tipo2.equals("int64")))
-            throw new SemanticError("tipo(s) incompat�vel(is) em express�o aritm�tica", token.getPosition());
+            throw new SemanticError("tipo(s) incompativel(is) em expressao aritmetica", token.getPosition());
         else {
             if (tipo1.equals("float64") || tipo2.equals("float64"))
                 pilha_tipos.push("float64");
@@ -244,7 +244,7 @@ public class Semantico implements Constants {
 
         if ((!tipo1.equals("float64") && !tipo1.equals("int64"))
                 || (!tipo2.equals("float64") && !tipo2.equals("int64")))
-            throw new SemanticError("tipo(s) incompat�vel(is) em express�o aritm�tica", token.getPosition());
+            throw new SemanticError("tipo(s) incompativel(is) em expressao aritmetica", token.getPosition());
         else {
             pilha_tipos.push("float64");
             codigo.add("div\n");
@@ -273,7 +273,7 @@ public class Semantico implements Constants {
         if (tipo.equals("float64") || tipo.equals("int64"))
             pilha_tipos.push(tipo);
         else {
-            throw new SemanticError("tipo(s) incompat�vel(is) em express�o aritm�tica", token.getPosition());
+            throw new SemanticError("tipo(s) incompativel(is) em expressao aritmetica", token.getPosition());
         }
 
         codigo.add("ldc.i8 -1\n");

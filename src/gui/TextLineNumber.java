@@ -1,7 +1,6 @@
 package gui;
 
-// Algumas partes do código foram retiradas da internet e adaptadas de acordo com os requisitos do ava3: 
-// https://tips4java.wordpress.com/2009/05/23/text-component-line-number/
+/* exemplos da internet https://tips4java.wordpress.com/2009/05/23/text-component-line-number */
 
 import java.awt.*;
 import java.beans.*;

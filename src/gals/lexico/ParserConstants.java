@@ -170,7 +170,7 @@ public interface ParserConstants
         "Era esperado multiply",
         "Era esperado split",
         "<program> inválido",
-        "<list_inst> inválido",
+        "<list_inst> inválido", //38
         "<list_inst_aux> inválido",
         "<inst> inválido",
         "<inst_aux> inválido",

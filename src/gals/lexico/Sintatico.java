@@ -36,10 +36,12 @@ public class Sintatico implements Constants
                 pos = previousToken.getPosition()+previousToken.getLexeme().length();
 
             currentToken = new Token(DOLLAR, "$", pos);
-        }
+        } 
 
         int x = ((Integer)stack.pop()).intValue();
         int a = currentToken.getId();
+        System.out.println(currentToken);
+       
 
         if (x == EPSILON)
         {
@@ -59,17 +61,22 @@ public class Sintatico implements Constants
                 }
             }
             else
+            	
             {
+            	
                 throw new SyntaticError(PARSER_ERROR[x], currentToken.getPosition());
+                
             }
         }
         else if (isNonTerminal(x))
         {
             if (pushProduction(x, a))
                 return false;
-            else
+            else {
+            	
                 throw new SyntaticError(PARSER_ERROR[x], currentToken.getPosition());
         }
+       }
         else // isSemanticAction(x)
         {
             semanticAnalyser.executeAction(x-FIRST_SEMANTIC_ACTION, previousToken);
@@ -80,10 +87,11 @@ public class Sintatico implements Constants
     private boolean pushProduction(int topStack, int tokenInput)
     {
         int p = PARSER_TABLE[topStack-FIRST_NON_TERMINAL][tokenInput-1];
+        System.out.println(p);
         if (p >= 0)
         {
             int[] production = PRODUCTIONS[p];
-            //empilha a produção em ordem reversa
+            // empilha na ordem reversa
             for (int i=production.length-1; i>=0; i--)
             {
                 stack.push(new Integer(production[i]));
